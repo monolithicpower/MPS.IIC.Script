@@ -1,0 +1,151 @@
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\TXTDebugTools.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\TXTDebugTools.pdb
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugTools_MarkupCompile.cache
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugTools_MarkupCompile.lref
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugTools.g.resources
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugTools.dll
+D:\I2C_TXTDebug_project\TXTDebugTools\TXTDebugTools\TXTDebugTools\obj\Debug\TXTDebugTools.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script - Copy\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.csprojResolveAssemblyReference.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script _v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.csprojResolveAssemblyReference.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_v1.0.0.2\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script.csprojResolveAssemblyReference.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.2 - MPQ8645P\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MPS.IIC.Script.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MahApps.Metro.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MPS.Common.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MPS.IIC.Model.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MPS.Instrument.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\System.Windows.Interactivity.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MahApps.Metro.pdb
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\bin\Debug\MahApps.Metro.xml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script.csprojResolveAssemblyReference.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\TXTDebugWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\TXTEditWindow.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\txtFileFormat.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.cache
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script_MarkupCompile.lref
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\TXTDebugWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\TXTEditWindow.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\txtFileFormat.baml
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script.g.resources
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script.dll
+D:\I2C_TXTDebug_project\MPS.IIC.Script_1.0.0.4\TXTDebugTools\obj\Debug\MPS.IIC.Script.pdb
