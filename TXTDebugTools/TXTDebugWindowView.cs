@@ -50,7 +50,7 @@ namespace MPS.IIC.Script
         }
 
 
-        private ObservableCollection<TXTCommandInfos> _alltxtCommandInfos;
+        private ObservableCollection<TXTCommandInfos> _alltxtCommandInfos = new ObservableCollection<TXTCommandInfos>();
 
         public ObservableCollection<TXTCommandInfos> AlltxtCommandInfos
         {
@@ -89,10 +89,11 @@ namespace MPS.IIC.Script
         }
 
         private string path = null;
+        string[] contentInfos;
+        Dictionary<string, int> varDic = new Dictionary<string, int>();
 
         public void BrowseMethod()
         {
-            int index = 0;
             try
             {
                 if (string.IsNullOrEmpty(path))
@@ -106,9 +107,6 @@ namespace MPS.IIC.Script
                     this.SelectedFilePath = this.path;
                 }
 
-                AlltxtCommandInfos = new ObservableCollection<TXTCommandInfos>();
-
-                #region parse commands
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string content = sr.ReadToEnd();
@@ -117,179 +115,33 @@ namespace MPS.IIC.Script
                         throw new Exception("Script File is empty.");
                     }
 
-                    string[] _contentInfos = content.Split(new char[] { '\r', '\n' });
-                    _contentInfos = _contentInfos.Where(s => (!string.IsNullOrEmpty(s)) && (!string.IsNullOrWhiteSpace(s))).ToArray();  //去掉空行
-
-                    #region Parse LOOP-ENDLOOP
-                    List<string> contentInfos = new List<string>();   //用于保存loop后的命令行
-                    List<int> rowIDs = new List<int>();  //用来标记原文本中的行数，与contentInfos对应
-
-                    for (int j = 0; j < _contentInfos.Length; j++)
-                    {
-                        var str = _contentInfos[j].Trim();
-                        var strInfos = str.Split(new char[] { ' ', '=' }).Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
-                        if (strInfos[0].ToLower() == "loop")
-                        {
-                            var times = int.Parse(strInfos[1]);
-
-                            var k = j + 1;
-                            var s = _contentInfos[k].ToLower();
-                            while (s.Trim() != "end_loop")
-                            {
-                                k++;
-                                s = _contentInfos[k].ToLower();  //若超出范围仍未找到endloop 这里报访问越界的错
-                            }
-
-                            var looptemps = _contentInfos.Skip(j + 1).Take(k - j - 1).ToArray();
-                            for (int m = 0; m < times; m++)
-                            {
-                                for (int itemID = 0; itemID < looptemps.Length; itemID++)
-                                {
-                                    contentInfos.Add(looptemps[itemID]);
-                                    rowIDs.Add(j + 2 + itemID);
-                                }
-                            }
-                            j = k;
-                        }
-                        else
-                        {
-                            contentInfos.Add(_contentInfos[j]);
-                            rowIDs.Add(j + 1);
-                        }
-                    }
-                    #endregion
-
-                    byte slaveAddr = 0;
+                    contentInfos = content.Split(new char[] { '\r', '\n' });
+                    contentInfos = contentInfos.Where(s => (!string.IsNullOrEmpty(s)) && (!string.IsNullOrWhiteSpace(s))).ToArray();  //去掉空行
 
                     #region Parse Content
-                    for (var id = 0; id < contentInfos.ToArray().Length; id++)
+                    var currentId = 0;
+                    while (currentId <= contentInfos.ToArray().Length)
                     {
-                        var str = contentInfos[id].Trim();
-                        index = rowIDs[id];
-
-                        var temptxtCommand = new TXTCommandInfos();//
-                        var strInfos = str.Split(new char[] { ' ', '=' });
-                        strInfos = strInfos.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
-
-                        #region set address
-                        if (index == 1)
-                        {
-                            if (strInfos.Length == 3 && strInfos[0].ToLower() == "set" && strInfos[1].ToLower() == "address")
-                            {
-
-                                var addr = strInfos[2];
-                                slaveAddr = Convert.ToByte(addr, 16);
-                                temptxtCommand.Operation = "SET ADDRESS";
-                                temptxtCommand.ExpectedValue = addr;
-                                AlltxtCommandInfos.Add(temptxtCommand);
-
-                                continue;
-                            }
-                            else
-                            {
-                                throw new Exception("Must set address first.");
-                            }
-                        }
-                        #endregion
-
-
-                        if (strInfos.Length == 3)
-                        {
-                            temptxtCommand.RegAddr = strInfos[0].PadLeft(2, '0');
-                            temptxtCommand.Operation = strInfos[1].ToUpper();
-
-                            var regAddr = Convert.ToByte(strInfos[0], 16);
-                            var format = strInfos[1];
-
-                            switch (format.ToLower())
-                            {
-                                case "write_byte":
-                                    //byte value1;
-                                    DeviceObject.Devices.PMBus.WriteByte(slaveAddr, regAddr, Convert.ToByte(strInfos[2], 16));
-                                    //DeviceObject.Devices.PMBus.ReadByte(slaveAddr, regAddr, out value1);
-                                    temptxtCommand.ExpectedValue = strInfos[2].PadLeft(2, '0');
-                                    //temptxtCommand.ReadbackValue = StringConvert(value1);
-                                    break;
-                                case "write_word":
-                                    //ushort value2;
-                                    DeviceObject.Devices.PMBus.WriteWord(slaveAddr, regAddr, Convert.ToUInt16(strInfos[2], 16));
-                                    //DeviceObject.Devices.PMBus.ReadWord(slaveAddr, regAddr, out value2);
-                                    temptxtCommand.ExpectedValue = strInfos[2].PadLeft(4, '0');
-                                    //temptxtCommand.ReadbackValue = StringConvert(value2);
-                                    break;
-                                case "read_byte":
-                                    byte value3;
-                                    DeviceObject.Devices.PMBus.ReadByte(slaveAddr, regAddr, out value3);
-                                    temptxtCommand.ExpectedValue = strInfos[2].PadLeft(2, '0');
-                                    temptxtCommand.ReadbackValue = StringConvert(value3);
-                                    temptxtCommand.Check = (temptxtCommand.ExpectedValue.ToUpper() == temptxtCommand.ReadbackValue).ToString();
-                                    break;
-                                case "read_word":
-                                    ushort value4;
-                                    DeviceObject.Devices.PMBus.ReadWord(slaveAddr, regAddr, out value4);
-                                    temptxtCommand.ExpectedValue = strInfos[2].PadLeft(4, '0');
-                                    temptxtCommand.ReadbackValue = StringConvert(value4);
-                                    temptxtCommand.Check = (temptxtCommand.ExpectedValue.ToUpper() == temptxtCommand.ReadbackValue).ToString();
-                                    break;
-                                default:
-                                    throw new Exception();
-                            }
-
-                        }
-                        else if (strInfos.Length == 2 && strInfos[0].ToLower() == "delay")
-                        {
-                            temptxtCommand.Operation = strInfos[0].ToUpper();
-                            temptxtCommand.ExpectedValue = strInfos[1];
-
-                            int delaytime;
-                            //int.TryParse(strInfos[1], out delaytime);
-                            delaytime = int.Parse(strInfos[1]);
-                            //delay
-                            System.Threading.Thread.Sleep(delaytime);
-                        }
-                        else if (strInfos.Length == 2 && strInfos[1].ToLower() == "send")
-                        {
-                            temptxtCommand.Operation = strInfos[1].ToUpper();
-                            temptxtCommand.RegAddr = strInfos[0].PadLeft(2, '0');
-                            var regAddr = Convert.ToByte(strInfos[0], 16);
-                            DeviceObject.Devices.PMBus.SendCommand(slaveAddr, regAddr); 
-                        }
-                        else
-                        {
-                            throw new Exception();
-                        }
-                        AlltxtCommandInfos.Add(temptxtCommand);
+                        ExecuteCommand(currentId);  //executing
+                        currentId++;
                     }
                     #endregion
                 }
-                #endregion
-
-                TXTStatusMessage = "Script configuration Write Finished.";
+                TXTStatusMessage = "Done.";
                 path = null;
             }
             catch (Exception ex)
             {
                 path = null;
-                if (index == 0)
-                {
-                    TXTStatusMessage = " 'LOOP' and 'END_LOOP' mismatch.";
-                }
-                else if (index == 1)
-                {
-                    TXTStatusMessage = string.Format("Error in Line 1:  Please check the command format. " + ex.Message);
-                }
-                else
-                {
-                    TXTStatusMessage = string.Format("Error in Line {0}:  Please check the command format.", index);
-                }
-
-            }
+                TXTStatusMessage = ex.Message;
+            }           
         }
 
         #endregion
 
 
         #region method
+
         public string OpenFile()
         {
             var openDiag = new OpenFileDialog
@@ -320,6 +172,120 @@ namespace MPS.IIC.Script
             return res.ToUpper();
         }
         #endregion
+
+
+        public void ExecuteCommand(int currentId)
+        {
+            var cmd = contentInfos[currentId].Trim().Split(new char[] { ' ', '=' });
+            cmd = cmd.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
+
+            var txtCommand = new TXTCommandInfos();
+            switch (cmd[0])
+            {
+                case "readbyte":
+                    byte value;
+                    DeviceObject.Devices.PMBus.ReadByte(Convert.ToByte(cmd[1], 16), Convert.ToByte(cmd[2], 16), out value);
+                    txtCommand.Operation = "readbyte";
+                    txtCommand.SlaveAddr = cmd[1];
+                    txtCommand.RegAddr = cmd[2];
+                    txtCommand.ExpectedValue = cmd[3];
+                    txtCommand.ReadbackValue = value.ToString("X2");
+                    txtCommand.Check = (txtCommand.ReadbackValue == txtCommand.ExpectedValue).ToString();
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "writebyte":
+                    DeviceObject.Devices.PMBus.WriteByte(Convert.ToByte(cmd[1], 16), Convert.ToByte(cmd[2], 16), Convert.ToByte(cmd[3], 16));
+                    txtCommand.Operation = "writebyte";
+                    txtCommand.SlaveAddr = cmd[1];
+                    txtCommand.RegAddr = cmd[2];
+                    txtCommand.ExpectedValue = cmd[3];
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "readword":
+                    ushort value1;
+                    DeviceObject.Devices.PMBus.ReadWord(Convert.ToByte(cmd[1], 16), Convert.ToByte(cmd[2], 16), out value1);
+                    txtCommand.Operation = "readword";
+                    txtCommand.SlaveAddr = cmd[1];
+                    txtCommand.RegAddr = cmd[2];
+                    txtCommand.ExpectedValue = cmd[3].PadLeft(4, '0');
+                    txtCommand.ReadbackValue = value1.ToString("X4");
+                    txtCommand.Check = (txtCommand.ReadbackValue == txtCommand.ExpectedValue).ToString();
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "writeword":
+                    DeviceObject.Devices.PMBus.WriteWord(Convert.ToByte(cmd[1], 16), Convert.ToByte(cmd[2], 16), Convert.ToUInt16(cmd[3], 16));
+                    txtCommand.Operation = "writeword";
+                    txtCommand.SlaveAddr = cmd[1];
+                    txtCommand.RegAddr = cmd[2];
+                    txtCommand.ExpectedValue = cmd[3];
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "send":
+                    DeviceObject.Devices.PMBus.SendCommand(Convert.ToByte(cmd[0], 16), Convert.ToByte(cmd[1], 16));
+                    txtCommand.Operation = "send";
+                    txtCommand.SlaveAddr = cmd[1];
+                    txtCommand.RegAddr = cmd[2];
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "delay":
+                    System.Threading.Thread.Sleep(Convert.ToInt32(cmd[1]));
+                    AlltxtCommandInfos.Add(txtCommand);
+                    break;
+                case "loop":
+                    var endId = FindEndLoop(currentId); //找到对应的endloop
+                    var looptime = Convert.ToInt32(cmd[1]);                  
+                    while (looptime > 0)  
+                    {
+                        for (int id = currentId + 1; id < endId; id++)  //执行内部的操作
+                        {
+                            ExecuteCommand(id);
+                        }
+                        looptime--;
+                    }
+                    currentId = endId;
+                    break;
+                case "var":
+                    //variable setting
+                    //查找varDic中有没有
+                    //有：改值
+                    //没有：添加
+                    //考虑前面的命令中的变量替换问题
+                    break;
+                default:
+                    throw new Exception("Invalid operation");
+            }
+        }
+
+        public int FindEndLoop(int startId)
+        {
+            var innerloopCount = 0;  //该loop内部有多少loop
+            for (int endId = startId + 1; endId < contentInfos.Count(); endId++)
+            {
+                var line = contentInfos[endId];
+                if (line.ToLower().Contains("loop"))
+                {
+                    innerloopCount++;
+                }
+                else if (line.ToLower().Contains("endloop"))
+                {
+                    if (innerloopCount == 0)
+                    {
+                        return endId;
+                    }
+                    else
+                    {
+                        innerloopCount--;
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            throw new Exception("Format error: Loop mismatch.");
+        }
+
+        
     }
 }
 

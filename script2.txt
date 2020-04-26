@@ -1,0 +1,55 @@
+savepath C:\Users\caluo\Desktop\MP5515CapTest.txt
+
+var Addr = 33h            # slave address, end with 'h' as Hex
+var times = 3             # loop times
+var Rtest = 5100          # RTEST Pin Resister (unit:Ω)
+var ILDO = 0.005          # ILDO (unit:A)
+var CapDelay = 5000       # Delay after CapTest enabled (unit: ms)
+var internal = 1000       # Delay after each period (unit:ms)
+var PGS_th = 0Fh  
+var dischargeTimer = 0    
+var Vinit = 0
+var Vfinal = 0
+var Cstrg = 0
+var accuracy = 40.1 / 1023
+
+# (1) Set PGS_Threshold
+readbyte Addr 06h to tempvalue
+var tempvalue = tempvalue & F0h | PGS_th
+writebyte Addr 06h tempvalue
+
+# (2) Start
+loop times
+    # Enable CapTest
+    readbyte Addr 01h to tempvalue
+    var tempvalue = tempvalue | 08h
+    writebyte Addr 01h tempvalue
+    delay CapDelay
+
+    var hByte = 0
+    var lByte = 0
+    # Voltage Initial
+    readbyte Addr 14h to hByte
+    readbyte Addr 15h to lByte
+    # var hByte = 4
+    # var lByte = 5
+    var Vinit = (hByte * 4 + (lByte * 3)) * accuracy
+    
+    # Voltage Final
+    readbyte Addr 12h to hByte
+    readbyte Addr 13h to lByte
+    # var hByte = 3
+    # var lByte = 4
+    var Vfinal = (hByte * 4 + (lByte * 3)) * accuracy
+
+    # Discharge Timer
+    readbyte Addr 17h to hByte
+    readbyte Addr 16h to lByte
+    var dischargeTimer  = (hByte * 256 + lByte ) / 1000
+
+    # Calculate
+    var Cstrg = dischargeTimer / (Rtest * ln( (Vinit + Rtest*ILDO) / (Vfinal + Rtest*ILDO))) * 10^6
+    save Rtest Vinit Vfinal dischargeTimer Cstrg
+
+    delay internal
+endloop

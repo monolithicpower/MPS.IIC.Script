@@ -1,0 +1,22 @@
+send 01h D1h                            #this is a test
+readword 01h D1h 00FFh
+savepath C:\Users\caluo\Desktop\saveTry.txt
+var x = 1
+var value = 12h
+var test = 5.1
+
+#this is a test
+loop 3
+  readbyte 01h D1h A1h to value
+  var value = value & 7Fh | 80h          #D[7] = 1
+  writebyte 01h D1h value
+  loop 2
+    writebyte 01h D1h x
+    save value x
+    var x = x + 1
+  endloop
+
+  delay 10
+endloop
+
+

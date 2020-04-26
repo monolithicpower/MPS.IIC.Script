@@ -8,6 +8,19 @@ namespace MPS.IIC.Script
 {
     class TXTCommandInfos : ObservableObject
     {
+        private string _slaveAddr;
+
+        public string SlaveAddr
+        {
+            get { return _slaveAddr; }
+            set
+            {
+                _slaveAddr = value;
+                RaisePropertyChanged("SlaveAddr");
+            }
+        }
+
+
         private string _regAddr = "";
 
         public string RegAddr
