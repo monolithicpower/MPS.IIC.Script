@@ -70,7 +70,6 @@
     <Compile Include="TXTDebugWindow.xaml.cs">
       <DependentUpon>TXTDebugWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TXTDebugWindowView.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -22,3 +22,26 @@ C:\Users\caluo\Desktop\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.Properties
 C:\Users\caluo\Desktop\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.csproj.GenerateResource.Cache
 C:\Users\caluo\Desktop\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.exe
 C:\Users\caluo\Desktop\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.exe
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\ScriptTest.exe
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\ScriptTest.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\ControlzEx.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MahApps.Metro.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MPS.IIC.Script.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\System.Windows.Interactivity.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MPS.IIC.Model.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MPS.Instrument.dll
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MPS.IIC.Script.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\ControlzEx.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MahApps.Metro.pdb
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\bin\Debug\MahApps.Metro.xml
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.csprojResolveAssemblyReference.cache
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\MainWindow.g.cs
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\App.g.cs
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest_MarkupCompile.cache
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest_MarkupCompile.lref
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\MainWindow.baml
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.g.resources
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.Properties.Resources.resources
+D:\monolithicpower\I2C Tool\MPS.IIC.Script\ScriptTest\obj\Debug\ScriptTest.csproj.GenerateResource.Cache

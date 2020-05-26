@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using System.Runtime.InteropServices;
 
 //namespace MPS.IIC.Script
 //{
@@ -585,28 +586,29 @@ namespace MPS.IIC.Script
             return path;
         }
 
-        //public string StringConvert(byte value)
-        //{
-        //    string res = "";
-        //    res = Convert.ToString(value, 16).PadLeft(2, '0');
-        //    return res.ToUpper();
-        //}
-        //public string StringConvert(ushort value)
-        //{
-        //    string res = "";
-        //    res = Convert.ToString(value, 16).PadLeft(4, '0');
-        //    return res.ToUpper();
-        //}
+        [DllImport("kernel32.dll")]
+        extern static short QueryPerformanceCounter(ref long x);
+        [DllImport("kernel32.dll")]
+        extern static short QueryPerformanceFrequency(ref long x);
+        //定义延迟函数  us
+        public void usDelay(long usdelay)
+        {
+            long stop_Value = 0;
+            long start_Value = 0;
+            long freq = 0;
+            long n = 0;
 
-        //private void SaveResult2TXT(TXTCommandInfos infos)
-        //{
-        //    string res = string.Format("{0}\t{1}\t{2}\t{3}\t{4}", infos.RegAddr, infos.Operation, infos.ExpectedValue, infos.ReadbackValue, infos.Check);
-        //    using (StreamWriter sw = new StreamWriter(respath, true))
-        //    {
-        //        sw.WriteLine(res);
-        //    }
-        //}
-        
+            QueryPerformanceFrequency(ref freq);  //获取CPU频率
+            long count = usdelay * freq / 1000000;   //这里写成1,000,000就是微秒，写成1,000就是毫秒
+            QueryPerformanceCounter(ref start_Value); //获取初始前值
+
+            while (n < count) //不能精确判定
+            {
+                QueryPerformanceCounter(ref stop_Value);//获取终止变量值
+                n = stop_Value - start_Value;
+            }
+        }
+
 
         public int ExecuteCommand(int currentId)
         {
@@ -693,7 +695,8 @@ namespace MPS.IIC.Script
                         break;
                     case "delay":
                         cmd = ReplaceVariable(cmd);
-                        System.Threading.Thread.Sleep(ToInt(cmd[1]));
+                        //System.Threading.Thread.Sleep(ToInt(cmd[1]));
+                        usDelay(Convert.ToInt64(cmd[1]));  //us级别delay
                         txtCommand.ReadbackValue = cmd[1];
                         datagrid.Invoke(new Action(() => 
                         {
