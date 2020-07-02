@@ -489,6 +489,9 @@ namespace MPS.IIC.Script
             if (path == null)
             {
                 path = OpenFile();
+                if (path == "")
+                    return;
+                
                 if (!File.Exists(path)) throw new Exception("File don't exists!");
             }
             string filename = Regex.Split(path, "\\\\", RegexOptions.IgnoreCase).Last();
@@ -579,7 +582,8 @@ namespace MPS.IIC.Script
             var showDialog = openDiag.ShowDialog();
             if (showDialog == null || !(bool)showDialog)
             {
-                throw new Exception("Open File Failed!");
+                //MessageBox.Show("Open File Failed!");
+                return "";
             }
             var path = openDiag.FileName;
 

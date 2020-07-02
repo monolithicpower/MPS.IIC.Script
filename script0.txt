@@ -1,5 +1,5 @@
 send 01h D1h                            #this is a test
-readword 01h D1h 00FFh
+READWORD 01h D1h 00FFh
 savepath C:\Users\caluo\Desktop\saveTry.txt
 var x = 1
 var value = 12h

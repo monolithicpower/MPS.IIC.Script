@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:MPS.IIC.Script"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="Script Debugging" Height="750" Width="600" WindowStartupLocation="CenterScreen" BorderBrush="Black" ResizeMode="CanResize">
+        Title="Script Debugging" Height="600" Width="500" WindowStartupLocation="CenterScreen" BorderBrush="Black" ResizeMode="CanResize">
 
     <!--<Window.DataContext>
         <local:TXTDebugWindowView />
@@ -28,23 +28,23 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20*"  />
-            <ColumnDefinition Width="60*"  />
-            <ColumnDefinition Width="20*"  />
+            <ColumnDefinition Width="100"  />
+            <ColumnDefinition Width="*"  />
+            <ColumnDefinition Width="120"  />
 
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Script file (.txt):" FontWeight="Normal" FontSize="13"/>
         <!--<TextBox BorderBrush="Black" Grid.Column="1"  Margin="1,4,8.667,0" FontSize="11" Text="{Binding SelectedFilePath}"/>-->
-        <TextBox Name="path_tb" BorderBrush="Black" Grid.Column="1"  Margin="1,4,4,0" Height="25" FontSize="12" VerticalContentAlignment="Bottom"/>
+        <TextBox Name="path_tb" BorderBrush="Black" Grid.Column="1"  Margin="1,4,4,0" Height="20" FontSize="12" VerticalContentAlignment="Bottom"/>
         <!--<Button Content="Browse" FontSize="8" Grid.Column="2" Margin="7.667,5,5,0" Height="5" Width="50" VerticalContentAlignment="Center" Command="{Binding BrowseCommand}"/>-->
-        <StackPanel Orientation="Horizontal" Grid.Column="2" >
+        <StackPanel Orientation="Horizontal" Grid.Column="2">
             <Button Content="Browse" FontSize="10" FontWeight="Normal" Margin="3 0" Height="20" Width="50" VerticalContentAlignment="Center" Click="Browse_Click"/>
             <Button Content="Help" FontSize="10" FontWeight="Normal" Margin="3 0" Height="20" Width="50" VerticalContentAlignment="Center" Click="Button_Click"/>
         </StackPanel>
         <!--<TextBox Text="User Command List" Grid.Row="2" Grid.ColumnSpan="3" HorizontalContentAlignment="Center" IsReadOnly="True" FontSize="20" TextAlignment="Center" FontWeight="Bold" Background="AliceBlue"  />-->
 
-        <DataGrid Name="datagrid" Grid.Row="3" FontSize="14" Grid.ColumnSpan="3" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserSortColumns="False" BorderBrush="Gray" SelectionUnit="FullRow" IsReadOnly="True" CanUserReorderColumns="False" CanUserAddRows="False" Grid.RowSpan="2">
+        <DataGrid Name="datagrid" Grid.Row="3" FontSize="14" Grid.ColumnSpan="3" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserSortColumns="False" BorderBrush="Gray" SelectionUnit="FullRow" IsReadOnly="True" CanUserReorderColumns="False" CanUserAddRows="False" Grid.RowSpan="2" Background="LightGray">
             <DataGrid.CellStyle>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="VerticalAlignment" Value="Bottom" />
