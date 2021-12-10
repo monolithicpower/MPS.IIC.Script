@@ -1,4 +1,4 @@
-﻿using MahApps.Metro.Controls;
+﻿//using MahApps.Metro.Controls;
 using Microsoft.Win32;
 using MPS.Instrument;
 using System;
@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 //namespace MPS.IIC.Script
 //{
@@ -404,7 +405,7 @@ using System.Runtime.InteropServices;
 //        #endregion
 //    }
 //}
-         
+
 
 namespace MPS.IIC.Script
 {
@@ -417,15 +418,11 @@ namespace MPS.IIC.Script
         private Thread CurrentThread = null;
         string[] contentInfos;
         string savepath;
-        //public TXTDebugWindow()
-        //{
-        //    InitializeComponent();
-        //}
 
-        //Singleton 线程不安全
         private static TXTDebugWindow _instance = null;
         private string path;
         private string respath;
+        //private Stopwatch sw;
         private TXTDebugWindow(string filepath = null)
         {
             InitializeComponent();
@@ -433,6 +430,8 @@ namespace MPS.IIC.Script
             datagrid.DataContext = AlltxtCommands;
             this.Closing += TXTDebugWindow_Closing;
             this.Closed += TXTDebugWindow_Closed;
+
+            //sw = new Stopwatch();
         }
 
         public static TXTDebugWindow CreateInstance(string filepath = null)
@@ -536,7 +535,7 @@ namespace MPS.IIC.Script
                             contentInfos[i] = contentInfos[i].Trim();
                         }
                         contentInfos = contentInfos.Where(s => (!string.IsNullOrEmpty(s)) && (!string.IsNullOrWhiteSpace(s))).ToArray();  //去掉空行
-                        statusbar.Invoke(new Action(() => { statusbar.Content = " Executing..."; }));
+                        statusbar.Dispatcher.Invoke(new Action(() => { statusbar.Content = " Executing..."; }));
 
                         #region Parse Content
                         var Id = 0;
@@ -546,7 +545,7 @@ namespace MPS.IIC.Script
                         }
                         #endregion
                     }
-                    statusbar.Invoke(new Action(() =>
+                    statusbar.Dispatcher.Invoke(new Action(() =>
                     {
                         statusbar.Content = " Finished";
                         statusbar.Background = Brushes.LightBlue;
@@ -555,7 +554,7 @@ namespace MPS.IIC.Script
                 }
                 catch (Exception ex)
                 {
-                    statusbar.Invoke(new Action(() =>
+                    statusbar.Dispatcher.Invoke(new Action(() =>
                     {
                         statusbar.Content = ex.Message;
                         statusbar.Background = Brushes.LightCoral;
@@ -622,13 +621,12 @@ namespace MPS.IIC.Script
                 cmd = cmd.Where(s => !string.IsNullOrWhiteSpace(s)).ToArray();
 
                 var txtCommand = new TXTCommandInfos() { Operation = contentInfos[currentId].Trim() };
-                switch (cmd[0])
+                switch (cmd[0].ToLower())
                 {
                     case "readbyte":
                         cmd = ReplaceVariable(cmd);
                         byte value;
                         DeviceObject.Devices.PMBus.ReadByte(ToByte(cmd[1]), ToByte(cmd[2]), out value);
-
                         if (cmd.Length == 4)  //readbyte 01h D1h 80h
                         {
                             txtCommand.ExpectedValue = cmd[3];
@@ -646,7 +644,7 @@ namespace MPS.IIC.Script
                         }
                         txtCommand.ReadbackValue = value.ToString("X2") + 'h';
                         txtCommand.Check = (txtCommand.ExpectedValue == null || txtCommand.ReadbackValue == txtCommand.ExpectedValue).ToString();
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -656,7 +654,7 @@ namespace MPS.IIC.Script
                     case "writebyte":
                         cmd = ReplaceVariable(cmd);
                         DeviceObject.Devices.PMBus.WriteByte(ToByte(cmd[1]), ToByte(cmd[2]), ToByte(cmd[3]));
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -667,10 +665,26 @@ namespace MPS.IIC.Script
                         cmd = ReplaceVariable(cmd);
                         ushort value1;
                         DeviceObject.Devices.PMBus.ReadWord(ToByte(cmd[1]), ToByte(cmd[2]), out value1);
-                        txtCommand.ExpectedValue = cmd[3].PadLeft(4, '0');
+                        //txtCommand.ExpectedValue = cmd[3].PadLeft(4, '0');
+                        if (cmd.Length == 4)  //readbyte 01h D1h 80h
+                        {
+                            //txtCommand.ExpectedValue = cmd[3];
+                            txtCommand.ExpectedValue = cmd[3].PadLeft(4, '0');
+                        }
+                        else if (cmd.Length == 5)    //readbyte 01h D1h to value
+                        {
+                            var vkey = cmd[cmd.Length - 1];
+                            varDic[vkey] = value1;
+                        }
+                        else if (cmd.Length == 6)    //readbyte 01h D1h 80h to value
+                        {
+                            var vkey = cmd[cmd.Length - 1];
+                            varDic[vkey] = value1;
+                            txtCommand.ExpectedValue = cmd[3];
+                        }
                         txtCommand.ReadbackValue = value1.ToString("X4") + 'h';
-                        txtCommand.Check = (txtCommand.ReadbackValue == txtCommand.ExpectedValue).ToString();
-                        datagrid.Invoke(new Action(() => 
+                        txtCommand.Check = (txtCommand.ExpectedValue == null || txtCommand.ReadbackValue == txtCommand.ExpectedValue).ToString();
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -679,8 +693,11 @@ namespace MPS.IIC.Script
                         break;
                     case "writeword":
                         cmd = ReplaceVariable(cmd);
+                        //sw.Reset();
                         DeviceObject.Devices.PMBus.WriteWord(ToByte(cmd[1]), ToByte(cmd[2]), ToWord(cmd[3]));
-                        datagrid.Invoke(new Action(() => 
+                        //sw.Start();
+                        txtCommand.ReadbackValue = cmd[3];
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -690,7 +707,7 @@ namespace MPS.IIC.Script
                     case "send":
                         cmd = ReplaceVariable(cmd);
                         DeviceObject.Devices.PMBus.SendCommand(ToByte(cmd[1]), ToByte(cmd[2]));
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -699,10 +716,11 @@ namespace MPS.IIC.Script
                         break;
                     case "delay":
                         cmd = ReplaceVariable(cmd);
-                        //System.Threading.Thread.Sleep(ToInt(cmd[1]));
+
                         usDelay(Convert.ToInt64(cmd[1]));  //us级别delay
+
                         txtCommand.ReadbackValue = cmd[1];
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -761,7 +779,7 @@ namespace MPS.IIC.Script
                         }
 
                         txtCommand.ReadbackValue = vValue.ToString();
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -773,7 +791,7 @@ namespace MPS.IIC.Script
                         if (File.Exists(savepath))
                             File.Delete(savepath);
                         txtCommand.ReadbackValue = savepath;
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -794,7 +812,7 @@ namespace MPS.IIC.Script
                         {
                             sw.WriteLine(line);
                         }
-                        datagrid.Invoke(new Action(() => 
+                        datagrid.Dispatcher.Invoke(new Action(() => 
                         {
                             AlltxtCommands.Add(txtCommand);
                             datagrid.ScrollIntoView(txtCommand);
@@ -935,7 +953,7 @@ namespace MPS.IIC.Script
             double value;
             for (int i = 0; i < cmd.Length; i++)
             {
-                if (keywords.Contains(cmd[i]) || cmd[i-1] == "to")
+                if (keywords.Contains(cmd[i].ToLower()) || cmd[i-1] == "to")
                     continue;
                 
                 if (varDic.TryGetValue(cmd[i], out value))
